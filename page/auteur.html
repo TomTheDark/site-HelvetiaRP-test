@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Auteur - Helvetia RP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="L'équipe d'Helvetia RP">
+    <link rel="icon" href="/media/img/favicon.ico" type="image/ico">
+    <link rel="apple-touch-icon" href="/media/img/apple-touch-icon.png">
+    <link rel="stylesheet" href="/media/css/styles.css">
+</head>
+
+<body>
+    <!-- Entête page -->
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="/index.html">
+                    <img src="/media/img/Logo_HelvetiaRP.png" alt="Logo du serveur">
+                </a>
+                <h2 class="site-title">Helvetia RP</h2>
+            </div>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="menu-icon" aria-hidden="true"></span>
+            </button>
+    
+            <!-- Navigation -->
+            <nav class="navigation-list" id="primary-navigation">
+                <ul>
+                    <li><a href="/index.html">Accueil</a></li>
+                    <li><a href="/page/galerie.html">Galerie</a></li>
+                    <li><a href="/page/touches-commandes.html">Touches</a></li>
+                    <li><a href="/page/contact.html">Contact</a></li>
+                    <li><a href="https://linktr.ee/helvetiarp.ch">Linktree</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Explanation Section -->
+        <section class="explanation-section">
+            <div class="explanation-box" id="author">
+                <h1>Présentation auteurs</h1>
+            </div>
+        </section>
+
+        <!-- Section Le Fondateur -->
+        <section class="author-section">
+            <h2 class="author-title">Le Fondateur</h2>
+            <div class="author-box">
+                <div class="profile-card">
+                    <img src="https://cdn.discordapp.com/avatars/514782007071604754/5ca4b8adb2644143556c9453e945c9df.png?size=1024" alt="Photo du fondateur" class="profile-img">
+                    <div class="profile-content">
+                        <span class="profile-name">Tom</span>
+                        <p class="profile-desc">
+                            Passionné par l'informatique, j'ai fondé Helvetia RP pour offrir une expérience de roleplay unique et authentique.
+                            Mon objectif est de bâtir une communauté où chacun peut exprimer sa créativité et vivre des aventures mémorables.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Les Co-Fondateurs -->
+        <section class="author-section">
+            <h2 class="author-title">Les Co-Fondateurs</h2>
+            <div class="author-box">
+                <div class="co-founders-grid">
+                    <!-- Co-Fondateur 1 -->
+                    <div class="profile-card">
+                        <img src="https://cdn.discordapp.com/avatars/487629267723747328/2302b30a4955459cf3b3365a2fe1a032.png?size=1024" alt="Photo co-fondateur 1" class="profile-img">
+                        <div class="profile-content">
+                            <span class="profile-name">Ninovui</span>
+                            <p class="profile-desc">
+                                Je suis un passionné de RP et j'ai rejoint Helvetia RP pour partager des histoires et des aventures inoubliables.
+                                En dehors du jeu, j'aime également la musique et la lecture, ce qui m'inspire dans mes créations de personnages et d'histoires.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Co-Fondateur 2 -->
+                    <div class="profile-card">
+                        <img src="/media/img/Logo-HelvetiaRP-Round.jpg" alt="Photo co-fondateur 2" class="profile-img">
+                        <div class="profile-content">
+                            <span class="profile-name">Rapstories</span>
+                            <p class="profile-desc">
+                                Bonjour, je suis Rapstories, un des co-fondateur d'Helvetia RP.
+                                En dehors du RP, je suis un amateur de technologie et de jeux vidéo, ce qui m'inspire à toujours innover et améliorer notre communauté.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="dark-mode-button-container">
+        <button class="dark-mode-button" onclick="switchMode()">
+            <img src="/media/img/dark-theme-svgrepo-com.svg" alt="Toggle dark mode">
+        </button>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/page/mentions-legales.html">Mentions légales</a> - 
+                <a href="https://linktr.ee/helvetiarp.ch" target="_blank">Linktree</a> - 
+                <a href="/page/contact.html" target="_blank">Contact</a> - 
+                <a href="/page/auteur.html">Auteur</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Helvetia RP
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Activer/désactiver le mode sombre au chargement
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+
+        // Fonction de changement de thème
+        function switchMode() {
+            var element = document.body;
+            element.classList.toggle("light-mode");
+            
+            // Sauvegarde du choix dans le localStorage
+            if (element.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Gestion du menu de navigation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navigation = document.getElementById('primary-navigation');
+
+        // Ajoute des Event Listener pour le menu
+        if (menuToggle && navigation) {
+            menuToggle.addEventListener('click', function () {
+                var isOpen = navigation.classList.toggle('open');
+                menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            navigation.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    navigation.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Position dynamique du bouton dark mode (mobile uniquement)
+        function adjustDarkModeButton() {
+            // Vérifier si on est sur mobile (viewport < 820px)
+            if (window.innerWidth >= 820) return;
+            
+            const darkModeButton = document.querySelector('.dark-mode-button');
+            const darkModeContainer = document.querySelector('.dark-mode-button-container');
+            const footer = document.querySelector('footer');
+            
+            if (!darkModeButton || !footer || !darkModeContainer) return;
+            
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const footerTop = footer.offsetTop;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Si on est proche du bas de la page (moins de 5px du footer)
+            if (scrollPosition >= footerTop - 5) {
+                darkModeButton.classList.add('above-footer');
+                darkModeButton.style.bottom = 0;
+            } else {
+                darkModeButton.classList.remove('above-footer');
+                darkModeButton.style.bottom = '0';
+            }
+        }
+        
+        // Exécuter au chargement et lors du scroll
+        window.addEventListener('scroll', adjustDarkModeButton);
+        window.addEventListener('resize', adjustDarkModeButton);
+        adjustDarkModeButton();
+    </script>
+
+</body>
+
+</html>

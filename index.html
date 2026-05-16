@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Ouverture de la balise head // Contenu NON visible par les internautes -->
+
+<head>
+    <title>Helvetia RP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Site du serveur Helvetia RP">
+    <link rel="icon" href="media/img/favicon.ico" type="image/ico"> <!-- 48x48 -->
+    <link rel="apple-touch-icon" href="media/img/apple-touch-icon.png"> <!-- 180×180 -->
+    <link rel="stylesheet" href="media/css/styles.css">
+</head>
+<!-- Ouverture de la balise body // Contenu visible par les internautes -->
+
+<body>
+    <!-- Entête page -->
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <!-- Logo qui redirige vers le menu principal -->
+                <a href="#">
+                    <img src="media/img/Logo_HelvetiaRP.png" alt="Logo du serveur">
+                </a>
+                <h2 class="site-title">Helvetia RP</h2>
+            </div>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="menu-icon" aria-hidden="true"></span>
+            </button>
+    
+            <!-- Navigation -->
+            <nav class="navigation-list" id="primary-navigation">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="/page/galerie.html">Galerie</a></li>
+                    <li><a href="/page/touches-commandes.html">Touches</a></li>
+                    <li><a href="/page/contact.html">Contact</a></li>
+                    <li><a href="https://linktr.ee/helvetiarp.ch">Linktree</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner Section -->
+        <section class="banner">
+            <div class="banner-image">
+                <img src="https://i.postimg.cc/fT8SwyfF/Emotes-Banner.png" alt="Banner Helvetia RP">
+            </div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <div class="welcome-box">
+                <h1>Bienvenue sur le Serveur</h1>
+                <p> 
+                    Rejoignez notre communauté de joueurs passionnés pour une expérience RP authentique en Suisse. Profitez de jobs  variés, d'une économie dynamique et d'une ambiance conviviale avec des admins actifs.
+                    Que vous soyez policier, ambulancier, citoyen ou entrepreneur, trouvez votre place dans notre serveur. Discord actif, events réguliers et mise à jour constante vous attendent!
+                </p>
+                <p> 
+                    Prêt à commencer votre aventure? Connectez-vous dès maintenant et devenez un citoyen d'Helvetia!
+                </p>
+            </div>
+        </section>
+
+        <!-- Image Carousel Section -->
+        <section class="carousel">
+            <div class="carousel-container">
+                <h3>Aperçu du serveur</h3>
+                <div class="carousel-window">
+                    <div class="carousel-track" role="list">
+                        <div class="carousel-slide" role="listitem">
+                            <img src="media/img/SuperPumaSwissAirForce.jpg" alt="Super Puma de l'armée" class="carousel-item">
+                        </div>
+                        <div class="carousel-slide" role="listitem">
+                            <img src="media/img/h145rega.jpg" alt="H145 de la REGA" class="carousel-item">
+                        </div>
+                        <div class="carousel-slide" role="listitem">
+                            <img src="https://i.postimg.cc/Vv3TMmjW/Capture-d-ecran-2022-08-26-230524.png" alt="Propriété de riche" class="carousel-item">
+                        </div>
+                    </div>
+                    <button class="carousel-button prev" type="button" aria-label="Image précédente">&#10094;</button>
+                    <button class="carousel-button next" type="button" aria-label="Image suivante">&#10095;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="dark-mode-button-container">
+        <button class="dark-mode-button" onclick="switchMode()">
+            <img src="media/img/dark-theme-svgrepo-com.svg" alt="Toggle dark mode">
+        </button>
+    </div>
+
+    <!-- Modal pour afficher les images en grand -->
+    <div id="imageModal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Image agrandie">
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/page/mentions-legales.html">Mentions légales</a> - 
+                <a href="https://linktr.ee/helvetiarp.ch" target="_blank">Linktree</a> - 
+                <a href="/page/contact.html" target="_blank">Contact</a> - 
+                <a href="/page/auteur.html">Auteur</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Helvetia RP
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Activer/désactiver le mode sombre au chargement
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+
+        // Fonction de changement de thème
+        function switchMode() {
+            var element = document.body;
+            element.classList.toggle("light-mode");
+            
+            // Sauvegarde du choix dans le localStorage
+            if (element.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Gestion du menu de navigation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navigation = document.getElementById('primary-navigation');
+
+        // Ajoute des Event Listener pour le menu
+        if (menuToggle && navigation) {
+            menuToggle.addEventListener('click', function () {
+                var isOpen = navigation.classList.toggle('open');
+                menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            navigation.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    navigation.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Fonctionnalité Carrousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.carousel-track');
+            const slides = track ? Array.from(track.querySelectorAll('.carousel-slide')) : [];
+            const prevButton = document.querySelector('.carousel-button.prev');
+            const nextButton = document.querySelector('.carousel-button.next');
+            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+            let currentSlide = 0;
+
+            if (!track || slides.length === 0) return;
+
+            function updateCarousel(index) {
+                currentSlide = (index + slides.length) % slides.length;
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === currentSlide));
+            }
+
+            prevButton?.addEventListener('click', () => updateCarousel(currentSlide - 1));
+            nextButton?.addEventListener('click', () => updateCarousel(currentSlide + 1));
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => updateCarousel(index));
+            });
+
+            // Prise en charge des gestes pour les téléphones
+            let startX = 0;
+            let isDragging = false;
+
+            track.addEventListener('pointerdown', (event) => {
+                startX = event.clientX;
+                isDragging = true;
+            });
+
+            window.addEventListener('pointerup', () => {
+                isDragging = false;
+            });
+
+            window.addEventListener('pointermove', (event) => {
+                if (!isDragging) return;
+                const deltaX = event.clientX - startX;
+                if (Math.abs(deltaX) > 50) {
+                    updateCarousel(currentSlide + (deltaX < 0 ? 1 : -1));
+                    isDragging = false;
+                }
+            });
+
+            updateCarousel(0);
+        });
+
+        // Position dynamique du bouton dark mode (mobile uniquement)
+        function adjustDarkModeButton() {
+            // Vérifier si on est sur mobile (viewport < 820px)
+            if (window.innerWidth >= 820) return;
+            
+            const darkModeButton = document.querySelector('.dark-mode-button');
+            const darkModeContainer = document.querySelector('.dark-mode-button-container');
+            const footer = document.querySelector('footer');
+            
+            if (!darkModeButton || !footer || !darkModeContainer) return;
+            
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const footerTop = footer.offsetTop;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Si on est proche du bas de la page (moins de 5px du footer)
+            if (scrollPosition >= footerTop - 5) {
+                darkModeButton.classList.add('above-footer');
+                darkModeButton.style.bottom = 0;
+            } else {
+                darkModeButton.classList.remove('above-footer');
+                darkModeButton.style.bottom = '0';
+            }
+        }
+        
+        // Exécuter au chargement et lors du scroll
+        window.addEventListener('scroll', adjustDarkModeButton);
+        window.addEventListener('resize', adjustDarkModeButton);
+        adjustDarkModeButton();
+
+        // Gestion de la modal pour afficher les images en grand
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // Ajouter un événement click sur toutes les images cliquables
+        document.querySelectorAll('.carousel-item').forEach(function(img) {
+            if (img.tagName === 'IMG') {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    modal.style.display = 'flex';
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt;
+                });
+            }
+        });
+
+        // Fermer la modal en cliquant sur le X
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+        }
+
+        // Fermer la modal en cliquant en dehors de l'image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Fermer la modal avec la touche Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
